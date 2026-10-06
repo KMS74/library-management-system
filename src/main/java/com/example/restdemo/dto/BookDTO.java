@@ -1,0 +1,30 @@
+package com.example.restdemo.dto;
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class BookDTO {
+
+    private Long id;
+
+    @NotBlank(message = "Title is required")
+    private String title;
+
+    @NotBlank(message = "Author is required")
+    private String author;
+
+    private int publicationYear;
+
+    private String genre;
+
+    @Min(value = 0, message = "Available copies cannot be negative")
+    private int availableCopies;
+}
